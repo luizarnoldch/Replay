@@ -1,15 +1,16 @@
 const {Router} = require("express");
 const router = Router();
-
+const passport = require('passport');
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 // SIGNUP
 router.get('/registro', isNotLoggedIn, (req, res) => {
-    res.render('auten/registroE');
+    res.render('auten/registro');
 });
 
 router.post('/registro', isNotLoggedIn, passport.authenticate('local.signup', {
     successRedirect: '/usuario',
-    failureRedirect: '/registroE',
+    failureRedirect: '/registro',
     failureFlash: true
 }));
 
@@ -45,9 +46,10 @@ router.get('/usuario', isLoggedIn, async(req, res) => {
     const rol = req.user.id_rol;
 
     if (rol == 1) {
-        res.redirect('/persona');
+        res.redirect('/perfil');
     } else if (rol == 2) {
-        res.redirect('/empresa');
+        res.redirect('/admin');
     }
 });
+
 module.exports = router;

@@ -55,6 +55,7 @@ app.use('/producto',require('./routes/producto.routes'))
 app.use('/filtro',require('./routes/producto.routes'))
 app.use('/carrito',require('./routes/producto.routes'))
 app.use('/perfil',require('./routes/producto.routes'))
+app.use(require('./routes/autenticacion.routes'))
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
