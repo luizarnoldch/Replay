@@ -20,15 +20,6 @@ router.get('/ingreso', isNotLoggedIn, (req, res) => {
 });
 
 router.post('/ingreso', isNotLoggedIn, (req, res, next) => {
-    /*
-        req.check('codigo', 'El usuario es requerido').notEmpty();
-        req.check('contrasena', 'Contraseña requerida').notEmpty();
-        /const errors = req.validationErrors();
-        if (errors.length > 0) {
-            //req.flash('message', errors[0].msg);
-            res.redirect('/ingreso');
-        }
-    */
     passport.authenticate('local.signin', {
         successRedirect: '/usuario',
         failureRedirect: '/ingreso',
