@@ -84,14 +84,16 @@
     <div class="container text-center">
         <h2>Tecnología</h2>
         {{#if tecnologia}}
-            <div class="carousel-default my-3" onclick="window.open('https://www.youtube.com/watch?v=gpWDtoNrYm8&ab_channel=FerDan')">
+            <div class="carousel-default my-3">
                 {{#each tecnologia}}
                     <div class="card mx-2 text-center p-3">
-                        <img src={{img_url}} alt="Mejores precios" class="card-img-top">
-                        <div class="card-body">
-                            <p>{{name}}</p>
-                            <p>S/.{{price}}</p>
-                        </div>
+                        <a href="/producto/{{id}}">
+                            <img src={{img_url}} alt="Mejores precios" class="card-img-top">
+                            <div class="card-body">
+                                <p>{{name}}</p>
+                                <p>S/.{{price}}</p>
+                            </div>
+                        </a>
                     </div>
                 {{/each}}
             </div>
