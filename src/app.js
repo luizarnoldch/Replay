@@ -52,9 +52,9 @@ app.use((req, res, next) => {
 //Routes
 app.use(require('./routes/index.routes'))
 app.use('/producto',require('./routes/producto.routes'))
-app.use('/filtro',require('./routes/producto.routes'))
-app.use('/carrito',require('./routes/producto.routes'))
-app.use('/perfil',require('./routes/producto.routes'))
+app.use('/filtro',require('./routes/filtro.routes'))
+app.use('/carrito',require('./routes/carrito.routes'))
+app.use('/perfil',require('./routes/perfil.routes'))
 app.use(require('./routes/autenticacion.routes'))
 
 //Public
