@@ -5,14 +5,14 @@ const pool = require('../database');
 const helpers = require('./helpers');
 
 passport.use('local.signin', new LocalStrategy({
-    usernameField: 'codigo',
-    passwordField: 'contrasena',
+    usernameField: 'username',
+    passwordField: 'password',
     passReqToCallback: true
-}, async(req, codigo, contrasena, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE codigo = ?', [codigo]);
+}, async(req, username, password, done) => {
+    const rows = await pool.query('SELECT * FROM users WHERE codigo = ?', [username]);
     if (rows.length > 0) {
         const user = rows[0];
-        const validPassword = await helpers.matchPassword(contrasena, user.contrasena)
+        const validPassword = await helpers.matchPassword(password, user.password)
         if (validPassword) {
             done(null, user);
         } else {
@@ -24,8 +24,8 @@ passport.use('local.signin', new LocalStrategy({
 }));
 
 passport.use('local.signup', new LocalStrategy({
-    usernameField: 'codigo',
-    passwordField: 'contrasena',
+    usernameField: 'username',
+    passwordField: 'password',
     passReqToCallback: true
 }, async(req, codigo, contrasena, done) => {
     const {
