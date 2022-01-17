@@ -1,0 +1,138 @@
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://coolboxpe.vtexassets.com/arquivos/ids/180764-1200-auto?v=637496103843700000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+            </div>
+            <div class="col-md-6">
+                <p style="color: red;">Tecnología</p>
+                <h3 class="fw-bold">Bose QuietComfort 35</h3>
+                <p>Precio Online (no incluye delivery): <span class="fw-bold">S/.349.0</span></p>
+                <p>Precio en tienda: <span class="fw-bold">S/.400.0</span></p>
+                <button class="btn btn-secondary">Cambios y devoluciones</button>
+                <div class="py-3">
+                    <div class="btn-group d-inline" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary" onclick="restarCantidadProducto()">-</button>
+                        <button type="button" class="btn" id="cantidadProducto">1</button>
+                        <button type="button" class="btn btn-secondary" onclick="aumentarCantidadProducto()">+</button>
+                    </div>
+                    <p class="d-inline">Unidade(es)</p>
+                    <button class="btn d-inline" style="background-color: #F25854; color: white;">Agregar a la bolsa</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold">Descripción</h3>
+                <div class="p-3 bg-light rounded">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida cras magna sapien maecenas tempor. Neque risus quis eget odio. Adipiscing at commodo, dui odio vitae mauris. Suspendisse ullamcorper tempor sit vel ante at iaculis. Suscipit at quam felis nulla facilisis et nulla sed leo. Suscipit mi adipiscing suspendisse faucibus venenatis est. Lorem magnis cras fermentum, dictumst.
+                </div>                
+                <div style="height: 50px;"></div>
+                <h3 class="fw-bold">Características</h3>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                            <p class="m-0 fw-bold d-inline">Marca</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">Bose </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                            <p class="m-0 fw-bold d-inline">Color</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">Negro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                            <p class="m-0 fw-bold d-inline">Carga</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">2 horas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold">Revisa la disponibilidad</h3>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                            <i class="fas fa-map-marker-alt"></i> <p class="m-0 fw-bold d-inline">Lima, San Martin de Porres</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">Cambiar ></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                            <i class="fas fa-truck"></i> <p class="m-0 fw-bold d-inline">Envio programado</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">Ver más ></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bg-light rounded m-2">
+                    <div class="row justify-content-beteewn">
+                        <div class="col">
+                           <i class="fas fa-store"></i> <p class="m-0 fw-bold d-inline">Retiro en tienda</p>
+                        </div>
+                        <div class="col">
+                            <p class="d-inline">Ver más ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="my-5">
+    <div class="container text-center text-md-start">
+        <h2>Tambien te podria interesar</h2>
+        <div class="carousel-default my-3">
+            <div class="card mx-2 text-center p-3">
+                <a href="/producto/3">
+                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                    <div class="card-body">
+                        <p>Apple EarPods</p>
+                        <p>S/. 120.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card mx-2 text-center p-3">
+                <a href="/producto/5">
+                    <img src="https://falabella.scene7.com/is/image/FalabellaPE/17457509_01?wid=800&hei=800&qlt=70" alt="Mejores precios" class="card-img-top">
+                    <div class="card-body">
+                        <p>Sony Noise</p>
+                        <p>S/.348.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    function restarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        if(valor > 0 ){
+            valor--;
+        }
+        $("#cantidadProducto").text(valor);
+    }
+    function aumentarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        valor++;
+        $("#cantidadProducto").text(valor);
+    }
+</script>

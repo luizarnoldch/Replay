@@ -1,7 +1,7 @@
 const {Router} = require("express");
 const router = Router();
 
-router.get("/1", (req, res) => {
+router.get("/:id", (req, res) => {
     res.render("pefil");
 });
 

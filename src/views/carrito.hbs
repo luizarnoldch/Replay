@@ -2,46 +2,526 @@
     <div class="container">
         <div class="row">
             <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progress" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="col-3"><i class="fas fa-shopping-cart"></i> Bolsa de compras</div>
             <div class="col-3"><i class="fas fa-truck"></i> Tipo de entrega</div>
             <div class="col-3"><i class="far fa-credit-card"></i> Pagar</div>
             <div class="col-3"><i class="fas fa-check-circle"></i> Confirmacion de compra</div>
 
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-bs-toggle="tab" href="#home">Home</a></li>
-                <li><a data-bs-toggle="tab" href="#menu1">Menu 1</a></li>
-                <li><a data-bs-toggle="tab" href="#menu2">Menu 2</a></li>
-            </ul>
-
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active show">
-                    <h3 class="fw-bold py-5">Bolsa de compras</h3>
-                    <div class="col-md-10">
-
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="fw-bold py-5">Bolsa de compras</h3>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row align-items-center justify-content-between border p-3 m-3">
+                                <div class="col-2">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-2">
+                                    <p>Air Pods</p>
+                                    <p>Apple</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="fw-bold">S/. 120.00</p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="btn-group d-inline" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary" onclick="restarCantidadProducto()">-</button>
+                                        <button type="button" class="btn" id="cantidadProducto">1</button>
+                                        <button type="button" class="btn btn-secondary" onclick="aumentarCantidadProducto()">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-1"><button class="btn btn-secondary"><i class="fas fa-trash-alt"></i></button></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 align-self-start">
+                            <div class="row justify-content-between bg-light p-3 rounded">
+                                <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                <div class="col-6 fw-bold"><p id="cantidadDeProductos">1</p></div>
+                                <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="subTotal">120</span></div>
+                                <div class="col-6"><p>Envio:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="envio">12</span></div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total">132</span></div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary" style="background-color: #F25854; color: white;" onclick="cambioVentana2()">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <p>Cantidad de articulos: </p>
-                        <p>Subtotal del pedido: </p>
-                        <p>Envio: </p>
-                        <hr>
-                        <p>TOTAL:</p>
-                        <button class="btn btn-primary">Continuar</button>
-                    </div>
+                    <section class="my-5">
+                        <div class="container text-center text-md-start">
+                            <h2>Tambien te podria interesar</h2>
+                            <div class="carousel-default my-3">
+                                <div class="card mx-2 text-center p-3">
+                                    <a href="/producto/3">
+                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Apple EarPods</p>
+                                            <p>S/. 120.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a href="/producto/5">
+                                        <img src="https://falabella.scene7.com/is/image/FalabellaPE/17457509_01?wid=800&hei=800&qlt=70" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Sony Noise</p>
+                                            <p>S/.348.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Some content in menu 1.</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-bold py-5">Identificación</h3>
+                        </div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Correo</label>
+                                        <input type="email" class="form-control" id="correo">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="telefono" class="form-label">Telefono</label>
+                                        <input type="text" class="form-control" id="telefono">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="nombres" class="form-label">Nombres</label>
+                                        <input type="name" class="form-control" id="nombres">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="apellidos" class="form-label">Apellidos</label>
+                                        <input type="name" class="form-control" id="apellidos">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="docIdentidad" class="form-label">Documento de identidad</label>
+                                        <input type="number" class="form-control" id="docIdentidad">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 bg-light p-3 rounded">
+                            <h4 class="fw-bold">Detalle de compra</h4>
+                            <div class="row justify-content-between bg-light p-3 rounded">
+                                <div class="col-6">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                        <div class="col-6 fw-bold"><p id="cantidadDeProductos2">1</p></div>
+                                        <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="subTotal2">120</span></div>
+                                        <div class="col-6"><p>Envio:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="envio2">12</span></div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total2">132</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Dirección de envío</h3>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>Tipo de despacho</p>
+                                        <button class="btn btn-outline-primary"><i class="fas fa-shopping-cart"></i> Retiro en tienda</button>
+                                        <button class="btn btn-primary"><i class="fas fa-truck"></i> Despacho a domicilio</button>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label class="form-label">Departamento</label>
+                                            <select id="departamento" name="selectDepartamento" class="form-select">
+                                                <option value="">Seleccione una opcion</option>
+                                                <option value="Amazonas">Amazonas</option>
+                                                <option value="Ancash">Ancash</option>
+                                                <option value="Apurímac">Apurímac</option>
+                                                <option value="Arequipa">Arequipa</option>
+                                                <option value="Ayacucho">Ayacucho</option>
+                                                <option value="Cajamarca">Cajamarca</option>
+                                                <option value="Callao">Callao</option>
+                                                <option value="Cuzco">Cuzco </option>
+                                                <option value="Huancavelica">Huancavelica</option>
+                                                <option value="Huánuco">Huánuco</option>
+                                                <option value="Ica">Ica</option>
+                                                <option value="Junín">Junín</option>
+                                                <option value="La_Libertad">La Libertad</option>
+                                                <option value="Lambayeque">Lambayeque</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Loreto">Loreto</option>
+                                                <option value="Madre_de_Dios">Madre de Dios</option>
+                                                <option value="Moquegua">Moquegua</option>
+                                                <option value="Pasco">Pasco</option>
+                                                <option value="Piura">Piura</option>
+                                                <option value="Puno">Puno</option>
+                                                <option value="San_Martín">San Martín</option>
+                                                <option value="Tacna">Tacna</option>
+                                                <option value="Tumbes">Tumbes</option>
+                                                <option value="Ucayali">Ucayali</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">Provincia</label>
+                                            <select id="provincia" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Huaral">Huaral</option>
+                                                <option value="Cañete">Cañete</option>
+                                                <option value="Yauyos">Yauyos</option>
+                                                <option value="Huarochiri">Huarochiri</option>
+                                                <option value="Canta">Canta</option>
+                                                <option value="Huaura">Huaura</option>
+                                                <option value="Oyon">Oyon</option>
+                                                <option value="Vajatambo">Vajatambo</option>
+                                                <option value="Barranca">Barranca</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">Distrito</label>
+                                            <select id="distrito" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="ANCON">ANCON</option>
+                                                <option value="ATE">ATE</option>
+                                                <option value="BARRANCO">BARRANCO</option>
+                                                <option value="BREÑA">BREÑA</option>
+                                                <option value="CARABAYLLO">CARABAYLLO</option>
+                                                <option value="CHACLACAYO">CHACLACAYO</option>
+                                                <option value="CHORRILLOS">CHORRILLOS</option>
+                                                <option value="CIENEGUILLA">CIENEGUILLA</option>
+                                                <option value="COMAS">COMAS</option>
+                                                <option value="EL AGUSTINO">EL AGUSTINO</option>
+                                                <option value="INDEPENDENCIA">INDEPENDENCIA</option>
+                                                <option value="JESUS MARIA">JESUS MARIA</option>
+                                                <option value="LA MOLINA">LA MOLINA</option>
+                                                <option value="LA VICTORIA">LA VICTORIA</option>
+                                                <option value="LIMA">LIMA</option>
+                                                <option value="LINCE">LINCE</option>
+                                                <option value="LOS OLIVOS">LOS OLIVOS</option>
+                                                <option value="LURIGANCHO">LURIGANCHO</option>
+                                                <option value="LURIN">LURIN</option>
+                                                <option value="MAGDALENA DEL MAR">MAGDALENA DEL MAR</option>
+                                                <option value="MIRAFLORES">MIRAFLORES</option>
+                                                <option value="PACHACAMAC">PACHACAMAC</option>
+                                                <option value="PUCUSANA">PUCUSANA</option>
+                                                <option value="">PUEBLO LIBRE</option>
+                                                <option value="PUEBLO LIBRE">PUENTE PIEDRA</option>
+                                                <option value="PUNTA HERMOSA">PUNTA HERMOSA</option>
+                                                <option value="PUNTA NEGRA">PUNTA NEGRA</option>
+                                                <option value="RIMAC">RIMAC</option>
+                                                <option value="SAN BARTOLO">SAN BARTOLO</option>
+                                                <option value="SAN BORJA">SAN BORJA</option>
+                                                <option value="SAN ISIDRO">SAN ISIDRO</option>
+                                                <option value="SAN JUAN DE LURIGANCHO">SAN JUAN DE LURIGANCHO</option>
+                                                <option value="SAN JUAN DE MIRAFLORES">SAN JUAN DE MIRAFLORES</option>
+                                                <option value="SAN LUIS">SAN LUIS</option>
+                                                <option value="SAN MARTIN DE PORRES">SAN MARTIN DE PORRES</option>
+                                                <option value="SAN MIGUEL">SAN MIGUEL</option>
+                                                <option value="SANTA ANITA">SANTA ANITA</option>
+                                                <option value="SANTA MARIA DEL MAR">SANTA MARIA DEL MAR</option>
+                                                <option value="SANTA ROSA">SANTA ROSA</option>
+                                                <option value="SANTIAGO DE SURCO">SANTIAGO DE SURCO</option>
+                                                <option value="SURQUILLO">SURQUILLO</option>
+                                                <option value="VILLA EL SALVADOR">VILLA EL SALVADOR</option>
+                                                <option value="VILLA MARIA DEL TRIUNFO">VILLA MARIA DEL TRIUNFO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="form-control">Zona</label>
+                                            <select id="zona" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="Asentamiento Humano">Asentamiento Humano</option>
+                                                <option value="Urbanizacion">Urbanizacion</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreZona" class="form-label">Nombre Zona</label>
+                                                <input type="text" class="form-control" id="nombreZona">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="form-control">Via</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="1">Calle</option>
+                                                <option value="2">Departamento</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nomnbreVia" class="form-label">Nombre y numero de la Via</label>
+                                                <input type="text" class="form-control" id="nomnbreVia">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="numeroContacto">Numero contacto</label>
+                                            <input type="text" class="form-control" id="numeroContacto">
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="referencias" class="form-label">Referencias</label>
+                                                <input type="text" class="form-control" id="referencias">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        <div class="col-12">
+                            <h3 class="fw-bold">
+                                Entrega
+                            </h3>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            Seleccionar fecha de entrega del producto
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <button type="button" class="btn btn-outline-primary active" data-bs-toggle="button" autocomplete="off">01/12/21 | 08:00AM-08:00PM</button>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">02/12/21 | 08:00AM-08:00PM</button>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">03/12/21 | 08:00AM-08:00PM</button>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">04/12/21 | 08:00AM-08:00PM</button>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">05/12/21 | 08:00AM-08:00PM</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="recibeEnvio">Persona que recibe el envio</label>
+                                            <input type="text" class="form-control" id="recibeEnvio">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="dniRecepcionista">DNI del recepcionista</label>
+                                            <input type="text" class="form-control" id="dniRecepcionista">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Detalles adicionales sobre el envio</label>
+                                            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn" style="background-color: #F25854; color: white" onclick="cambioVentana1()">Volver</button>
+                            <button class="btn" style="background-color: #F25854; color: white" onclick="cambioVentana3()">Siguiente</button>
+                        </div>
+                    </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Some content in menu 2.</p>
+                    <div class="row py-5">
+                        <div class="col-7">
+                            <h3 class="fw-bold">Detalle de la compra</h3>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="correo1" class="form-label">Correo</label>
+                                                <input type="text" class="form-control" id="correo1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="telefono1" class="form-label">Telefono movil</label>
+                                                <input type="text" class="form-control" id="telefono1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="nombres1" class="form-label">Nombres</label>
+                                                <input type="text" class="form-control" id="nombres1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="apellidos1" class="form-label">Apellidos</label>
+                                                <input type="text" class="form-control" id="apellidos1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="departamento1" class="form-label">Departamento</label>
+                                                <input type="text" class="form-control" id="departamento1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="provincia1" class="form-label">Provincia</label>
+                                                <input type="text" class="form-control" id="provincia1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="distrito1" class="form-label">Distrito</label>
+                                                <input type="text" class="form-control" id="distrito1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="zona1" class="form-label">Zona</label>
+                                                <input type="text" class="form-control" id="zona1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreZona1" class="form-label">Nombre de la zona</label>
+                                                <input type="text" class="form-control" id="nombreZona1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{!-- falta --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 bg-light p-3 rounded">
+                            <h4 class="fw-bold">Detalle de compra</h4>
+                            <div class="row justify-content-between bg-light p-3 rounded">
+                                <div class="col-6">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                        <div class="col-6 fw-bold"><p id="cantidadDeProductos3">1</p></div>
+                                        <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="subTotal3">120</span></div>
+                                        <div class="col-6"><p>Envio:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="envio3">12</span></div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total3">132</span></div>
+                                <div class="col-12 text-center">
+                                    <button class="btn" onclick="cambioVentana4()" style="background-color: #F25854; color: white;">Pagar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Exito</h3>
+                            <p>Su compra fue realizada correctamente. Revisa el estado de tu pedido en “Mis pedidos” si se registra.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            
         </div>
     </div>
 </section>
+
+<script>
+    function restarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        if(valor > 1 ){
+            valor--;
+        }
+        $("#cantidadProducto").text(valor);
+        $("#cantidadDeProductos").text(valor);
+        $("#subTotal").text(120 * valor);
+        $("#envio").text(0.1 *  $("#subTotal").text());
+        $("#total").text(parseInt($("#envio").text()) + parseInt($("#subTotal").text()));
+
+        $("#cantidadDeProductos2").text(valor);
+        $("#subTotal2").text($("#subTotal").text());
+        $("#envio2").text($("#envio").text());
+        $("#total2").text($("#total").text());
+        
+        $("#cantidadDeProductos3").text(valor);
+        $("#subTotal3").text($("#subTotal").text());
+        $("#envio3").text($("#envio").text());
+        $("#total3").text($("#total").text());
+    }
+
+    function aumentarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        valor++;
+        $("#cantidadProducto").text(valor);
+        $("#cantidadDeProductos").text(valor);
+        $("#subTotal").text(120 * valor);
+        $("#envio").text(0.1 * $("#subTotal").text());
+        $("#total").text(parseInt($("#envio").text()) + parseInt($("#subTotal").text()));
+
+        $("#cantidadDeProductos2").text(valor);
+        $("#subTotal2").text($("#subTotal").text());
+        $("#envio2").text($("#envio").text());
+        $("#total2").text($("#total").text());
+
+        $("#cantidadDeProductos3").text(valor);
+        $("#subTotal3").text($("#subTotal").text());
+        $("#envio3").text($("#envio").text());
+        $("#total3").text($("#total").text());
+    }
+
+    function cambioVentana2(){
+        $("#home").removeClass("active show");
+        $("#menu1").addClass("active show");
+        $("#progress").css("width", "50%");
+    }
+
+    function cambioVentana1(){
+        $("#menu1").removeClass("active show");
+        $("#home").addClass("active show");
+        $("#progress").css("width", "25%");
+    }
+
+    function cambioVentana3(){
+        $("#menu1").removeClass("active show");
+        $("#menu2").addClass("active show");
+        $("#progress").css("width", "75%");
+
+        $("#correo1").val($("#correo").val());
+        $("#telefono1").val($("#telefono").val());
+        $("#nombres1").val($("#nombres").val());
+        $("#apellidos1").val($("#apellidos").val());
+        $("#departamento1").val($("#departamento").val());
+        $("#provincia1").val($("#provincia").val());
+        $("#distrito1").val($("#distrito").val());
+        $("#zona1").val($("#zona").val());
+        $("#nombreZona1").val($("#nombreZona").val());
+    }
+
+    function cambioVentana4(){
+        $("#menu2").removeClass("active show");
+        $("#menu3").addClass("active show");
+        $("#progress").css("width", "100%");
+    }
+</script>

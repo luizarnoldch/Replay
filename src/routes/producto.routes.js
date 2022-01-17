@@ -2,67 +2,45 @@ const {Router} = require("express");
 const router = Router();
 const connection = require("../database.js");
 
-router.get("/1", (req, res) => {
-    // const productID = req.params.id;
-
-    // connection.query(`CALL SP_PRODUCTOS_BUSCAR(${productID});`, async(error, results) => {
-    //     if(error) console.log(error);
-    //     else{
-    //         let product = results[0];
-
-    //         connection.query(`CALL SP_PRODUCTOS_LISTA_CATEGORIA(${product[0].idcategory});`, async(error, results) => {
-    //             if(error) console.log(error);
-    //             else{
-    //                 let recomend = results[0];
-                    
-    //                 res.render("producto", {producto: product, recomendados: recomend});
-    //             }
-    //         });
-
-    //     }
-    // });
-});
-
-router.get("/2", (req, res) => {
-    // const productID = req.params.id;
-
-    // connection.query(`CALL SP_PRODUCTOS_BUSCAR(${productID});`, async(error, results) => {
-    //     if(error) console.log(error);
-    //     else{
-    //         let product = results[0];
-
-    //         connection.query(`CALL SP_PRODUCTOS_LISTA_CATEGORIA(${product[0].idcategory});`, async(error, results) => {
-    //             if(error) console.log(error);
-    //             else{
-    //                 let recomend = results[0];
-                    
-    //                 res.render("producto", {producto: product, recomendados: recomend});
-    //             }
-    //         });
-
-    //     }
-    // });
-});
+// router.get("/:id", (req, res) => {
+//     res.render("producto");
+// });
 
 router.get("/3", (req, res) => {
-    // const productID = req.params.id;
-
-    // connection.query(`CALL SP_PRODUCTOS_BUSCAR(${productID});`, async(error, results) => {
-    //     if(error) console.log(error);
-    //     else{
-    //         let product = results[0];
-
-    //         connection.query(`CALL SP_PRODUCTOS_LISTA_CATEGORIA(${product[0].idcategory});`, async(error, results) => {
-    //             if(error) console.log(error);
-    //             else{
-    //                 let recomend = results[0];
-                    
-    //                 res.render("producto", {producto: product, recomendados: recomend});
-    //             }
-    //         });
-
-    //     }
-    // });
+    res.render("producto3");
+});
+router.get("/4", (req, res) => {
+    res.render("producto4");
+});
+router.get("/5", (req, res) => {
+    res.render("producto5");
+});
+router.get("/6", (req, res) => {
+    res.render("producto6");
+});
+router.get("/7", (req, res) => {
+    res.render("producto7");
+});
+router.get("/8", (req, res) => {
+    res.render("producto8");
+});
+router.get("/9", (req, res) => {
+    res.render("producto9");
+});
+router.get("/10", (req, res) => {
+    res.render("producto10");
+});
+router.get("/11", (req, res) => {
+    res.render("producto11");
+});
+router.get("/12", (req, res) => {
+    res.render("producto12");
+});
+router.get("/13", (req, res) => {
+    res.render("producto13");
+});
+router.get("/14", (req, res) => {
+    res.render("producto14");
 });
 
 module.exports = router;
