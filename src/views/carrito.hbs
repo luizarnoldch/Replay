@@ -4,10 +4,10 @@
             <div class="progress">
                 <div id="progress" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div class="col-3"><i class="fas fa-shopping-cart"></i> Bolsa de compras</div>
-            <div class="col-3"><i class="fas fa-truck"></i> Tipo de entrega</div>
-            <div class="col-3"><i class="far fa-credit-card"></i> Pagar</div>
-            <div class="col-3"><i class="fas fa-check-circle"></i> Confirmacion de compra</div>
+            <div class="col-3 p-3"><i class="fas fa-shopping-cart"></i> Bolsa de compras</div>
+            <div class="col-3 p-3"><i class="fas fa-truck"></i> Tipo de entrega</div>
+            <div class="col-3 p-3"><i class="far fa-credit-card"></i> Pagar</div>
+            <div class="col-3 p-3"><i class="fas fa-check-circle"></i> Confirmacion de compra</div>
 
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active show">
@@ -59,11 +59,11 @@
                             <h2>Tambien te podria interesar</h2>
                             <div class="carousel-default my-3">
                                 <div class="card mx-2 text-center p-3">
-                                    <a href="/producto/3">
-                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                                    <a href="/producto/4">
+                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/180764-1200-auto?v=637496103843700000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
                                         <div class="card-body">
-                                            <p>Apple EarPods</p>
-                                            <p>S/. 120.00</p>
+                                            <p>Bose QuietComfort 35</p>
+                                            <p>S/.349.00</p>
                                         </div>
                                     </a>
                                 </div>
@@ -73,6 +73,24 @@
                                         <div class="card-body">
                                             <p>Sony Noise</p>
                                             <p>S/.348.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a href="/producto/5">
+                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/190686-1200-auto?v=637674032750900000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Samsung Galaxy Buds</p>
+                                            <p>S/.199.99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a href="/producto/5">
+                                        <img src="https://cdn.shopify.com/s/files/1/0233/0902/5360/products/13204734_1_560x560@2x.jpg?v=1616414906" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>COWIN E7 Active Noise </p>
+                                            <p>S/.60.00</p>
                                         </div>
                                     </a>
                                 </div>
@@ -147,8 +165,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <p>Tipo de despacho</p>
-                                        <button class="btn btn-outline-primary"><i class="fas fa-shopping-cart"></i> Retiro en tienda</button>
-                                        <button class="btn btn-primary"><i class="fas fa-truck"></i> Despacho a domicilio</button>
+                                        <button class="btn" style="color: #F25854"><i class="fas fa-shopping-cart"></i> Retiro en tienda</button>
+                                        <button class="btn" style="color: #F25854; border-color: #F25854"><i class="fas fa-truck"></i> Despacho a domicilio</button>
                                     <div class="row">
                                         <div class="col-4">
                                             <label class="form-label">Departamento</label>
@@ -266,10 +284,10 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="form-control">Via</label>
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select id="via" class="form-select" aria-label="Default select example">
                                                 <option>Seleccione una opcion</option>
-                                                <option value="1">Calle</option>
-                                                <option value="2">Departamento</option>
+                                                <option value="Calle">Calle</option>
+                                                <option value="Departamento">Departamento</option>
                                             </select>
                                         </div>
                                         <div class="col-8">
@@ -309,11 +327,11 @@
                                             Seleccionar fecha de entrega del producto
                                         </div>
                                         <div class="col-12 mb-3">
-                                            <button type="button" class="btn btn-outline-primary active" data-bs-toggle="button" autocomplete="off">01/12/21 | 08:00AM-08:00PM</button>
-                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">02/12/21 | 08:00AM-08:00PM</button>
-                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">03/12/21 | 08:00AM-08:00PM</button>
-                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">04/12/21 | 08:00AM-08:00PM</button>
-                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="off">05/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854; border-color: #F25854" class="btn active" data-bs-toggle="button" autocomplete="off">01/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">02/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">03/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">04/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">05/12/21 | 08:00AM-08:00PM</button>
                                         </div>
                                         <div class="col-6">
                                             <label for="recibeEnvio">Persona que recibe el envio</label>
@@ -325,7 +343,7 @@
                                         </div>
                                         <div class="col-12">
                                             <label>Detalles adicionales sobre el envio</label>
-                                            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                            <textarea class="form-control" name="" id="adicionales" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -405,13 +423,74 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{!-- falta --}}
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="via1" class="form-label">Via</label>
+                                                <input type="text" class="form-control" id="via1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreVia1" class="form-label">Nombre y numero de Via</label>
+                                                <input type="text" class="form-control" id="nombreVia1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="numeroContacto1" class="form-label">Numero de Contacto</label>
+                                                <input type="text" class="form-control" id="numeroContacto1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="referencias1" class="form-label">Referencias</label>
+                                                <input type="text" class="form-control" id="referencias1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <button class="btn btn-secondary" disabled><i class="fas fa-truck"></i>  Despacho a domicilio</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <button class="btn btn-secondary" disabled>01/12/21        |             08:00AM - 08-00PM</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="recibeEnvio1" class="form-label">Persona que recibe el envio</label>
+                                                <input type="text" class="form-control" id="recibeEnvio1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="dniRecepcionista1" class="form-label">DNI del receptor</label>
+                                                <input type="text" class="form-control" id="dniRecepcionista1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="adicionales1" class="form-label">Detalles adicionales sobre el envio</label>
+                                                <textarea  class="form-control" name="" cols="30" rows="10" id="adicionales1" disabled></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 bg-light p-3 rounded">
+                        <div class="col-5 p-3 rounded">
                             <h4 class="fw-bold">Detalle de compra</h4>
-                            <div class="row justify-content-between bg-light p-3 rounded">
+                            <div class="row justify-content-between bg-light p-3 rounded  bg-light">
                                 <div class="col-6">
                                     <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
                                 </div>
@@ -428,18 +507,20 @@
                                 <hr>
                                 <div class="col-6"><p>TOTAL:</p></div>
                                 <div class="col-6 fw-bold">S/. <span id="total3">132</span></div>
-                                <div class="col-12 text-center">
-                                    <button class="btn" onclick="cambioVentana4()" style="background-color: #F25854; color: white;">Pagar</button>
-                                </div>
+                            </div>
+                            <div style="height: 50px;"></div>
+                            <div class="col-12 text-center">
+                                <button class="btn" data-bs-toggle="modal" data-bs-target="#pagar" style="background-color: #F25854; color: white;">Pagar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Exito</h3>
-                            <p>Su compra fue realizada correctamente. Revisa el estado de tu pedido en “Mis pedidos” si se registra.</p>
+                    <div class="row justify-content-center align-items-center  min-vh-100">
+                        <div class="col-12 text-center">
+                            <h3><i class="fas fa-check-circle" style="color: green"></i> Exito</h3>
+                            <p>Su compra fue realizada correctamente.</p>
+                            <p>Revisa el estado de tu pedido en “Mis pedidos” si se registra.</p>
                         </div>
                     </div>
                 </div>
@@ -447,6 +528,53 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="pagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="/img/medios-pago-paypal.png" alt="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope-open"></i></span>
+                    <input type="email" class="form-control" placeholder="usuario@gmail.com" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Jhon" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Doe" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="far fa-credit-card"></i></span>
+                    <input type="text" class="form-control" placeholder="9871 4562 1231 7468" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar"></i></span>
+                            <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="far fa-credit-card"></i></span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn" style="background-color: #F25854; color:white" onclick="cambioVentana4()" id="pagarCantidad"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
     function restarCantidadProducto(){
@@ -517,9 +645,24 @@
         $("#distrito1").val($("#distrito").val());
         $("#zona1").val($("#zona").val());
         $("#nombreZona1").val($("#nombreZona").val());
+        $("#via1").val($("#via").val());
+        $("#nombreVia1").val($("#nomnbreVia").val());
+
+        $("#numeroContacto1").val($("#numeroContacto").val());
+        $("#referencias1").val($("#referencias").val());
+        
+        $("#recibeEnvio1").val($("#recibeEnvio").val());
+        $("#dniRecepcionista1").val($("#dniRecepcionista").val());
+        $("#adicionales1").val($("#adicionales").val());
+
+        $("#pagarCantidad").text("Pagar $/. " + $("#total").text())
     }
 
     function cambioVentana4(){
+        $('#pagar').modal('hide');
+        //$("#pagar").removeClass("show");
+        //$("body").removeClass("modal-open");
+        //$('.modal-backdrop').remove();
         $("#menu2").removeClass("active show");
         $("#menu3").addClass("active show");
         $("#progress").css("width", "100%");

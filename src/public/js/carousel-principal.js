@@ -2,9 +2,9 @@ $(document).ready(function(){
     $('.carousel-default').slick({
         arrows: false,
         infinite: true,
-        speed: 300,
-        slidesToShow: 5,
-        slidesToScroll: 5,
+        speed: 3000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
         responsive: [
             {
             breakpoint: 1200,
