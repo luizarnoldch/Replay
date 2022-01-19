@@ -5,8 +5,8 @@ router.get("/", (req, res) =>{
     res.render("filtro");
 });
 
-router.get("/:id", (req, res) =>{
-    res.render("filtro");
-});
+// router.get("/:id", (req, res) =>{
+//     res.render("filtro");
+// });
 
 module.exports = router;
