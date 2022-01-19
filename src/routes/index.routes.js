@@ -4,7 +4,7 @@ const connection = require("../database.js");
 
 router.get("/", (req, res) =>{
     let tech, ofert, home, beuty;
-
+    /*
     connection.query(`CALL SP_PRODUCTOS_LISTA_CATEGORIA(6);`, async(error, results) => {
         if(error) console.log(error);
         else{
@@ -29,6 +29,7 @@ router.get("/", (req, res) =>{
 
         }
     });
+    */
 });
 
 module.exports = router;
