@@ -6,8 +6,8 @@ const exphbs = require('express-handlebars'); //importar la libreria express-han
 const session = require('express-session'); //almacenar los datos en la memoria del servidor
 const passport = require('passport'); //importar passport para utilizar su codigo principal
 const flash = require('connect-flash'); //importar libreria para enviar mensajes a travez de las vistas
-const MySQLStore = require('express-mysql-session')(session); //guardar la sesiones en mysql
-const { database } = require('./keys'); //importar la base de datos del archivo keys
+//const MySQLStore = require('express-mysql-session')(session); //guardar la sesiones en mysql
+//const { database } = require('./keys'); //importar la base de datos del archivo keys
 
 //inicializations
 const app = express();
@@ -31,12 +31,14 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+/*
 app.use(session({
     secret: 'faztmysqlnode',
     reseave: false,
     saveUninitialized: false,
     store: new MySQLStore(database)
 }));
+*/
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
