@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {{!-- styles defecto --}}
+    <link rel="stylesheet" href="/css/index.css">
+    {{!-- font awesome --}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.0/css/all.css"/>
+    {{!-- slick carousel --}}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    {{!-- animate --}}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Replay</title>
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: white;">
+    <div class="container">
+        <a class="navbar-brand" href="/index/logueado">
+            <img src="/img/logo-principal.png" alt="replay">
+        </a>
+        <form class="d-flex w-50">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+            <a href="/filtro/logueado" class="btn btn-outline-success"><i class="fas fa-search"></i></a>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item m-2">
+                    <a class="nav-link active btn" aria-current="page" href="/carrito/logueado" style="background-color: #F8F8F8; border-color: #F8F8F8;"><i class="fas fa-shopping-cart"></i> Bolsa de compra</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a class="nav-link active btn" aria-current="page" href="/" style="background-color: #F8F8F8; border-color: #F8F8F8;">Cerrar sesion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="progress">
+                <div id="progress" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="col-3 p-3"><i class="fas fa-shopping-cart"></i> Bolsa de compras</div>
+            <div class="col-3 p-3"><i class="fas fa-truck"></i> Tipo de entrega</div>
+            <div class="col-3 p-3"><i class="far fa-credit-card"></i> Pagar</div>
+            <div class="col-3 p-3"><i class="fas fa-check-circle"></i> Confirmacion de compra</div>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active show">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="fw-bold py-5">Bolsa de compras</h3>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row align-items-center justify-content-between border p-3 m-3">
+                                <div class="col-2">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-2">
+                                    <p>Air Pods</p>
+                                    <p>Apple</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="fw-bold">S/. 120.00</p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="btn-group d-inline" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary" onclick="restarCantidadProducto()">-</button>
+                                        <button type="button" class="btn" id="cantidadProducto">1</button>
+                                        <button type="button" class="btn btn-secondary" onclick="aumentarCantidadProducto()">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-1"><button class="btn btn-secondary"><i class="fas fa-trash-alt"></i></button></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 align-self-start">
+                            <div class="row justify-content-between bg-light p-3 rounded">
+                                <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                <div class="col-6 fw-bold"><p id="cantidadDeProductos">1</p></div>
+                                <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="subTotal">120</span></div>
+                                <div class="col-6"><p>Envio:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="envio">12</span></div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total">132</span></div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary" style="background-color: #F25854; color: white;" onclick="cambioVentana2()">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="my-5">
+                        <div class="container text-center text-md-start">
+                            <h2>Tambien te podria interesar</h2>
+                            <div class="carousel-default my-3">
+                                <div class="card mx-2 text-center p-3">
+                                    <a>
+                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/180764-1200-auto?v=637496103843700000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Bose QuietComfort 35</p>
+                                            <p>S/.349.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a>
+                                        <img src="https://falabella.scene7.com/is/image/FalabellaPE/17457509_01?wid=800&hei=800&qlt=70" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Sony Noise</p>
+                                            <p>S/.348.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a>
+                                        <img src="https://coolboxpe.vtexassets.com/arquivos/ids/190686-1200-auto?v=637674032750900000&width=1200&height=auto&aspect=true" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>Samsung Galaxy Buds</p>
+                                            <p>S/.199.99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card mx-2 text-center p-3">
+                                    <a>
+                                        <img src="https://cdn.shopify.com/s/files/1/0233/0902/5360/products/13204734_1_560x560@2x.jpg?v=1616414906" alt="Mejores precios" class="card-img-top">
+                                        <div class="card-body">
+                                            <p>COWIN E7 Active Noise </p>
+                                            <p>S/.60.00</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-bold py-5">Identificación</h3>
+                        </div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Correo</label>
+                                        <input type="email" class="form-control" id="correo">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="telefono" class="form-label">Telefono</label>
+                                        <input type="text" class="form-control" id="telefono">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="nombres" class="form-label">Nombres</label>
+                                        <input type="name" class="form-control" id="nombres">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="apellidos" class="form-label">Apellidos</label>
+                                        <input type="name" class="form-control" id="apellidos">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="docIdentidad" class="form-label">Documento de identidad</label>
+                                        <input type="number" class="form-control" id="docIdentidad">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 bg-light p-3 rounded">
+                            <h4 class="fw-bold">Detalle de compra</h4>
+                            <div class="row justify-content-between bg-light p-3 rounded">
+                                <div class="col-6">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                        <div class="col-6 fw-bold"><p id="cantidadDeProductos2">1</p></div>
+                                        <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="subTotal2">120</span></div>
+                                        <div class="col-6"><p>Envio:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="envio2">12</span></div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total2">132</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Dirección de envío</h3>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>Tipo de despacho</p>
+                                        <button class="btn" style="color: #F25854"><i class="fas fa-shopping-cart"></i> Retiro en tienda</button>
+                                        <button class="btn" style="color: #F25854; border-color: #F25854"><i class="fas fa-truck"></i> Despacho a domicilio</button>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label class="form-label">Departamento</label>
+                                            <select id="departamento" name="selectDepartamento" class="form-select">
+                                                <option value="">Seleccione una opcion</option>
+                                                <option value="Amazonas">Amazonas</option>
+                                                <option value="Ancash">Ancash</option>
+                                                <option value="Apurímac">Apurímac</option>
+                                                <option value="Arequipa">Arequipa</option>
+                                                <option value="Ayacucho">Ayacucho</option>
+                                                <option value="Cajamarca">Cajamarca</option>
+                                                <option value="Callao">Callao</option>
+                                                <option value="Cuzco">Cuzco </option>
+                                                <option value="Huancavelica">Huancavelica</option>
+                                                <option value="Huánuco">Huánuco</option>
+                                                <option value="Ica">Ica</option>
+                                                <option value="Junín">Junín</option>
+                                                <option value="La_Libertad">La Libertad</option>
+                                                <option value="Lambayeque">Lambayeque</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Loreto">Loreto</option>
+                                                <option value="Madre_de_Dios">Madre de Dios</option>
+                                                <option value="Moquegua">Moquegua</option>
+                                                <option value="Pasco">Pasco</option>
+                                                <option value="Piura">Piura</option>
+                                                <option value="Puno">Puno</option>
+                                                <option value="San_Martín">San Martín</option>
+                                                <option value="Tacna">Tacna</option>
+                                                <option value="Tumbes">Tumbes</option>
+                                                <option value="Ucayali">Ucayali</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">Provincia</label>
+                                            <select id="provincia" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Huaral">Huaral</option>
+                                                <option value="Cañete">Cañete</option>
+                                                <option value="Yauyos">Yauyos</option>
+                                                <option value="Huarochiri">Huarochiri</option>
+                                                <option value="Canta">Canta</option>
+                                                <option value="Huaura">Huaura</option>
+                                                <option value="Oyon">Oyon</option>
+                                                <option value="Vajatambo">Vajatambo</option>
+                                                <option value="Barranca">Barranca</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">Distrito</label>
+                                            <select id="distrito" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="ANCON">ANCON</option>
+                                                <option value="ATE">ATE</option>
+                                                <option value="BARRANCO">BARRANCO</option>
+                                                <option value="BREÑA">BREÑA</option>
+                                                <option value="CARABAYLLO">CARABAYLLO</option>
+                                                <option value="CHACLACAYO">CHACLACAYO</option>
+                                                <option value="CHORRILLOS">CHORRILLOS</option>
+                                                <option value="CIENEGUILLA">CIENEGUILLA</option>
+                                                <option value="COMAS">COMAS</option>
+                                                <option value="EL AGUSTINO">EL AGUSTINO</option>
+                                                <option value="INDEPENDENCIA">INDEPENDENCIA</option>
+                                                <option value="JESUS MARIA">JESUS MARIA</option>
+                                                <option value="LA MOLINA">LA MOLINA</option>
+                                                <option value="LA VICTORIA">LA VICTORIA</option>
+                                                <option value="LIMA">LIMA</option>
+                                                <option value="LINCE">LINCE</option>
+                                                <option value="LOS OLIVOS">LOS OLIVOS</option>
+                                                <option value="LURIGANCHO">LURIGANCHO</option>
+                                                <option value="LURIN">LURIN</option>
+                                                <option value="MAGDALENA DEL MAR">MAGDALENA DEL MAR</option>
+                                                <option value="MIRAFLORES">MIRAFLORES</option>
+                                                <option value="PACHACAMAC">PACHACAMAC</option>
+                                                <option value="PUCUSANA">PUCUSANA</option>
+                                                <option value="">PUEBLO LIBRE</option>
+                                                <option value="PUEBLO LIBRE">PUENTE PIEDRA</option>
+                                                <option value="PUNTA HERMOSA">PUNTA HERMOSA</option>
+                                                <option value="PUNTA NEGRA">PUNTA NEGRA</option>
+                                                <option value="RIMAC">RIMAC</option>
+                                                <option value="SAN BARTOLO">SAN BARTOLO</option>
+                                                <option value="SAN BORJA">SAN BORJA</option>
+                                                <option value="SAN ISIDRO">SAN ISIDRO</option>
+                                                <option value="SAN JUAN DE LURIGANCHO">SAN JUAN DE LURIGANCHO</option>
+                                                <option value="SAN JUAN DE MIRAFLORES">SAN JUAN DE MIRAFLORES</option>
+                                                <option value="SAN LUIS">SAN LUIS</option>
+                                                <option value="SAN MARTIN DE PORRES">SAN MARTIN DE PORRES</option>
+                                                <option value="SAN MIGUEL">SAN MIGUEL</option>
+                                                <option value="SANTA ANITA">SANTA ANITA</option>
+                                                <option value="SANTA MARIA DEL MAR">SANTA MARIA DEL MAR</option>
+                                                <option value="SANTA ROSA">SANTA ROSA</option>
+                                                <option value="SANTIAGO DE SURCO">SANTIAGO DE SURCO</option>
+                                                <option value="SURQUILLO">SURQUILLO</option>
+                                                <option value="VILLA EL SALVADOR">VILLA EL SALVADOR</option>
+                                                <option value="VILLA MARIA DEL TRIUNFO">VILLA MARIA DEL TRIUNFO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="form-control">Zona</label>
+                                            <select id="zona" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="Asentamiento Humano">Asentamiento Humano</option>
+                                                <option value="Urbanizacion">Urbanizacion</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreZona" class="form-label">Nombre Zona</label>
+                                                <input type="text" class="form-control" id="nombreZona">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="form-control">Via</label>
+                                            <select id="via" class="form-select" aria-label="Default select example">
+                                                <option>Seleccione una opcion</option>
+                                                <option value="Calle">Calle</option>
+                                                <option value="Departamento">Departamento</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nomnbreVia" class="form-label">Nombre y numero de la Via</label>
+                                                <input type="text" class="form-control" id="nomnbreVia">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="numeroContacto">Numero contacto</label>
+                                            <input type="text" class="form-control" id="numeroContacto">
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="referencias" class="form-label">Referencias</label>
+                                                <input type="text" class="form-control" id="referencias">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-5">
+                        <div class="col-12">
+                            <h3 class="fw-bold">
+                                Entrega
+                            </h3>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            Seleccionar fecha de entrega del producto
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <button style="color: #F25854; border-color: #F25854" class="btn active" data-bs-toggle="button" autocomplete="off">01/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">02/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">03/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">04/12/21 | 08:00AM-08:00PM</button>
+                                            <button style="color: #F25854" class="btn" data-bs-toggle="button" autocomplete="off">05/12/21 | 08:00AM-08:00PM</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="recibeEnvio">Persona que recibe el envio</label>
+                                            <input type="text" class="form-control" id="recibeEnvio">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="dniRecepcionista">DNI del recepcionista</label>
+                                            <input type="text" class="form-control" id="dniRecepcionista">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Detalles adicionales sobre el envio</label>
+                                            <textarea class="form-control" name="" id="adicionales" cols="30" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn" style="background-color: #F25854; color: white" onclick="cambioVentana1()">Volver</button>
+                            <button class="btn" style="background-color: #F25854; color: white" onclick="cambioVentana3()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <div class="row py-5">
+                        <div class="col-7">
+                            <h3 class="fw-bold">Detalle de la compra</h3>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="correo1" class="form-label">Correo</label>
+                                                <input type="text" class="form-control" id="correo1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="telefono1" class="form-label">Telefono movil</label>
+                                                <input type="text" class="form-control" id="telefono1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="nombres1" class="form-label">Nombres</label>
+                                                <input type="text" class="form-control" id="nombres1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="apellidos1" class="form-label">Apellidos</label>
+                                                <input type="text" class="form-control" id="apellidos1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="departamento1" class="form-label">Departamento</label>
+                                                <input type="text" class="form-control" id="departamento1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="provincia1" class="form-label">Provincia</label>
+                                                <input type="text" class="form-control" id="provincia1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="distrito1" class="form-label">Distrito</label>
+                                                <input type="text" class="form-control" id="distrito1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="zona1" class="form-label">Zona</label>
+                                                <input type="text" class="form-control" id="zona1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreZona1" class="form-label">Nombre de la zona</label>
+                                                <input type="text" class="form-control" id="nombreZona1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="via1" class="form-label">Via</label>
+                                                <input type="text" class="form-control" id="via1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="nombreVia1" class="form-label">Nombre y numero de Via</label>
+                                                <input type="text" class="form-control" id="nombreVia1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="numeroContacto1" class="form-label">Numero de Contacto</label>
+                                                <input type="text" class="form-control" id="numeroContacto1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="referencias1" class="form-label">Referencias</label>
+                                                <input type="text" class="form-control" id="referencias1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <button class="btn btn-secondary" disabled><i class="fas fa-truck"></i>  Despacho a domicilio</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <button class="btn btn-secondary" disabled>01/12/21        |             08:00AM - 08-00PM</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label for="recibeEnvio1" class="form-label">Persona que recibe el envio</label>
+                                                <input type="text" class="form-control" id="recibeEnvio1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label for="dniRecepcionista1" class="form-label">DNI del receptor</label>
+                                                <input type="text" class="form-control" id="dniRecepcionista1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="adicionales1" class="form-label">Detalles adicionales sobre el envio</label>
+                                                <textarea  class="form-control" name="" cols="30" rows="10" id="adicionales1" disabled></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 p-3 rounded">
+                            <h4 class="fw-bold">Detalle de compra</h4>
+                            <div class="row justify-content-between bg-light p-3 rounded  bg-light">
+                                <div class="col-6">
+                                    <img src="https://coolboxpe.vtexassets.com/arquivos/ids/167269-1200-auto?v=637305357297470000&width=1200&height=auto&aspect=true" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6"><p>Cantidad de articulos:</p></div>
+                                        <div class="col-6 fw-bold"><p id="cantidadDeProductos3">1</p></div>
+                                        <div class="col-6"><p>Subtotal del pedido:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="subTotal3">120</span></div>
+                                        <div class="col-6"><p>Envio:</p></div>
+                                        <div class="col-6 fw-bold">S/. <span id="envio3">12</span></div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-6"><p>TOTAL:</p></div>
+                                <div class="col-6 fw-bold">S/. <span id="total3">132</span></div>
+                            </div>
+                            <div style="height: 50px;"></div>
+                            <div class="col-12 text-center">
+                                <button class="btn" data-bs-toggle="modal" data-bs-target="#pagar" style="background-color: #F25854; color: white;">Pagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <div class="row justify-content-center align-items-center  min-vh-100">
+                        <div class="col-12 text-center">
+                            <h3><i class="fas fa-check-circle" style="color: green"></i> Exito</h3>
+                            <p>Su compra fue realizada correctamente.</p>
+                            <p>Revisa el estado de tu pedido en “Mis pedidos” si se registra.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="pagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="/img/medios-pago-paypal.png" alt="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope-open"></i></span>
+                    <input type="email" class="form-control" placeholder="usuario@gmail.com" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Jhon" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Doe" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="far fa-credit-card"></i></span>
+                    <input type="text" class="form-control" placeholder="9871 4562 1231 7468" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar"></i></span>
+                            <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="far fa-credit-card"></i></span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn" style="background-color: #F25854; color:white" onclick="cambioVentana4()" id="pagarCantidad"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function restarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        if(valor > 1 ){
+            valor--;
+        }
+        $("#cantidadProducto").text(valor);
+        $("#cantidadDeProductos").text(valor);
+        $("#subTotal").text(120 * valor);
+        $("#envio").text(0.1 *  $("#subTotal").text());
+        $("#total").text(parseInt($("#envio").text()) + parseInt($("#subTotal").text()));
+
+        $("#cantidadDeProductos2").text(valor);
+        $("#subTotal2").text($("#subTotal").text());
+        $("#envio2").text($("#envio").text());
+        $("#total2").text($("#total").text());
+        
+        $("#cantidadDeProductos3").text(valor);
+        $("#subTotal3").text($("#subTotal").text());
+        $("#envio3").text($("#envio").text());
+        $("#total3").text($("#total").text());
+    }
+
+    function aumentarCantidadProducto(){
+        let valor = parseInt($("#cantidadProducto").text());
+        valor++;
+        $("#cantidadProducto").text(valor);
+        $("#cantidadDeProductos").text(valor);
+        $("#subTotal").text(120 * valor);
+        $("#envio").text(0.1 * $("#subTotal").text());
+        $("#total").text(parseInt($("#envio").text()) + parseInt($("#subTotal").text()));
+
+        $("#cantidadDeProductos2").text(valor);
+        $("#subTotal2").text($("#subTotal").text());
+        $("#envio2").text($("#envio").text());
+        $("#total2").text($("#total").text());
+
+        $("#cantidadDeProductos3").text(valor);
+        $("#subTotal3").text($("#subTotal").text());
+        $("#envio3").text($("#envio").text());
+        $("#total3").text($("#total").text());
+    }
+
+    function cambioVentana2(){
+        $("#home").removeClass("active show");
+        $("#menu1").addClass("active show");
+        $("#progress").css("width", "50%");
+    }
+
+    function cambioVentana1(){
+        $("#menu1").removeClass("active show");
+        $("#home").addClass("active show");
+        $("#progress").css("width", "25%");
+    }
+
+    function cambioVentana3(){
+        $("#menu1").removeClass("active show");
+        $("#menu2").addClass("active show");
+        $("#progress").css("width", "75%");
+
+        $("#correo1").val($("#correo").val());
+        $("#telefono1").val($("#telefono").val());
+        $("#nombres1").val($("#nombres").val());
+        $("#apellidos1").val($("#apellidos").val());
+        $("#departamento1").val($("#departamento").val());
+        $("#provincia1").val($("#provincia").val());
+        $("#distrito1").val($("#distrito").val());
+        $("#zona1").val($("#zona").val());
+        $("#nombreZona1").val($("#nombreZona").val());
+        $("#via1").val($("#via").val());
+        $("#nombreVia1").val($("#nomnbreVia").val());
+
+        $("#numeroContacto1").val($("#numeroContacto").val());
+        $("#referencias1").val($("#referencias").val());
+        
+        $("#recibeEnvio1").val($("#recibeEnvio").val());
+        $("#dniRecepcionista1").val($("#dniRecepcionista").val());
+        $("#adicionales1").val($("#adicionales").val());
+
+        $("#pagarCantidad").text("Pagar $/. " + $("#total").text())
+    }
+
+    function cambioVentana4(){
+        $('#pagar').modal('hide');
+        //$("#pagar").removeClass("show");
+        //$("body").removeClass("modal-open");
+        //$('.modal-backdrop').remove();
+        $("#menu2").removeClass("active show");
+        $("#menu3").addClass("active show");
+        $("#progress").css("width", "100%");
+    }
+</script>
+
+
+
+
+<section class="container-fluid py-5" style="background-color: #F8F8F8;">
+    <div class="container text-center text-md-start">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/img/logo-principal.png" alt="replay">
+                <h3 class="fw-bold">Medios de pago</h3>
+                <img src="/img/medios-pago-paypal.png" alt="">
+                <p>© Copyright 2021 replay.pe</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fw-bold">Sobre Replay</h3>
+                <p><a href="#">¿Quiénes somos?</a></p>
+                <p><a href="#">Nuestras tiendas</a></p>
+                <p><a href="#">Trabaja con nosotros</a></p>
+                <p><a href="#">Devoluciones y cambios</a></p>
+                <p><a href="#">Pedidos</a></p>
+                <p><a href="#">Garantía</a></p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fw-bold">Contáctenos</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet</p>
+                <p><i class="fas fa-phone-alt"></i> +51 901487291</p>
+                <p><i class="far fa-envelope"></i> replay@gmail.com</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fw-bold">Notificaciones</h3>
+                <p>¡Suscribete y recibe todas nuestras ofertas!</p>
+            </div>
+        </div>
+    </div>
+</section>
+    {{!-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {{!-- bootstrap js --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {{!-- slick js --}}
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{!-- js vanilla --}}
+    <script src="/js/carousel-principal.js"></script>
+</body>
+</html>
